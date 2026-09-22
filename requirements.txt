@@ -1,0 +1,5 @@
+tkcalendar
+pandas==2.3.3
+reportlab
+openpyxl
+matplotlib
