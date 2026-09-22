@@ -1127,7 +1127,7 @@ class App(tk.Tk):
 
         tree.tag_configure("odd", background="#f0f0f0")
         tree.tag_configure("even", background="white")
-        tree.tag_configure("total", background="#e6f3ff", font=("Arial", 9, "bold"))
+        tree.tag_configure("total", background="#e6f3ff", font=("DejaVu Sans", 9, "bold"))
 
         for i, (title, width, anchor) in enumerate(columns, start=1):
             tree.heading(f"#{i}", text=title, anchor="center")
@@ -1169,7 +1169,7 @@ class App(tk.Tk):
 
         tree.tag_configure("odd", background="#f0f0f0")
         tree.tag_configure("even", background="white")
-        tree.tag_configure("total", background="#e6f3ff", font=("Arial", 9, "bold"))
+        tree.tag_configure("total", background="#e6f3ff", font=("DejaVu Sans", 9, "bold"))
 
         tree["columns"] = columns
 
@@ -1202,7 +1202,7 @@ class App(tk.Tk):
                     stretch=(i == len(config["columns"]))
                 )
             
-            total_tree.tag_configure("total", background="#e6f3ff", font=("Arial", 9, "bold"))
+            total_tree.tag_configure("total", background="#e6f3ff", font=("DejaVu Sans", 9, "bold"))
             
             # Синхронизация ширины колонок при изменении размера
             def sync_columns(event=None):
@@ -3708,7 +3708,7 @@ class App(tk.Tk):
         car_table.setStyle(TableStyle([
             ('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),
             ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-            ('FONTNAME', (0, 0), (-1, -1), 'Arial-Narrow'),
+            ('FONTNAME', (0, 0), (-1, -1), 'DejaVuSans'),
             ('FONTSIZE', (0, 0), (-1, -1), 10),
             ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
             # Отступы в ячейках
@@ -3921,17 +3921,13 @@ class App(tk.Tk):
         Returns:
             dict: Словарь со стилями ParagraphStyle
         """
-        # Регистрация шрифта с поддержкой кириллицы
+        # Регистрация шрифта DejaVu Sans с поддержкой кириллицы (свободная лицензия)
         fonts_dir = resource_path('fonts')
-        regular_font = fonts_dir / 'arial.ttf'
-        bold_font = fonts_dir / 'arialbd.ttf'
-        narrow_font = fonts_dir / 'ARIALN.TTF'
-        narrow_bold_font = fonts_dir / 'ARIALNB.TTF'        
+        regular_font = fonts_dir / 'DejaVuSans.ttf'
+        bold_font = fonts_dir / 'DejaVuSans-Bold.ttf'
 
-        pdfmetrics.registerFont(TTFont('Arial', str(regular_font)))
-        pdfmetrics.registerFont(TTFont('Arial-Bold', str(bold_font)))
-        pdfmetrics.registerFont(TTFont('Arial-Narrow', str(narrow_font)))
-        pdfmetrics.registerFont(TTFont('Arial-Narrow-Bold', str(narrow_bold_font)))
+        pdfmetrics.registerFont(TTFont('DejaVuSans', str(regular_font)))
+        pdfmetrics.registerFont(TTFont('DejaVuSans-Bold', str(bold_font)))
 
         styles = getSampleStyleSheet()
 
@@ -3939,7 +3935,7 @@ class App(tk.Tk):
         colontitle_style = ParagraphStyle(
             'ColonTitle',
             parent=styles['Normal'],
-            fontName='Arial-Narrow',
+            fontName='DejaVuSans',
             fontSize=6,
             alignment=TA_RIGHT,
             spaceAfter=5,
@@ -3950,7 +3946,7 @@ class App(tk.Tk):
         title_style = ParagraphStyle(
             'CustomTitle',
             parent=styles['Heading1'],
-            fontName='Arial-Bold',
+            fontName='DejaVuSans-Bold',
             fontSize=16,
             alignment=TA_CENTER,
             spaceAfter=10,
@@ -3961,7 +3957,7 @@ class App(tk.Tk):
         subtitle_style = ParagraphStyle(
             'CustomTitle1',
             parent=styles['Heading1'],
-            fontName='Arial-Narrow-Bold',
+            fontName='DejaVuSans-Bold',
             fontSize=14,
             alignment=TA_LEFT,
             spaceAfter=5,
@@ -3972,7 +3968,7 @@ class App(tk.Tk):
         info_style = ParagraphStyle(
             'InfoStyle',
             parent=styles['Normal'],
-            fontName='Arial',
+            fontName='DejaVuSans',
             fontSize=11,
             alignment=TA_LEFT,
             spaceAfter=5,
@@ -3983,7 +3979,7 @@ class App(tk.Tk):
         stats_value_style = ParagraphStyle(
             'StatsValueStyle',
             parent=styles['Normal'],
-            fontName='Arial',
+            fontName='DejaVuSans',
             fontSize=10,
             alignment=TA_LEFT,
             leading=12
@@ -3993,7 +3989,7 @@ class App(tk.Tk):
         stats_label_style = ParagraphStyle(
             'StatsLabelStyle',
             parent=styles['Normal'],
-            fontName='Arial',
+            fontName='DejaVuSans',
             fontSize=10,
             alignment=TA_RIGHT,
             leading=12
@@ -4023,7 +4019,7 @@ class App(tk.Tk):
             ('BACKGROUND', (0, 0), (-1, 0), colors.darkblue),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-            ('FONTNAME', (0, 0), (-1, 0), 'Arial-Narrow-Bold'),
+            ('FONTNAME', (0, 0), (-1, 0), 'DejaVuSans-Bold'),
             ('FONTSIZE', (0, 0), (-1, 0), 9),
             ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
 
@@ -4039,7 +4035,7 @@ class App(tk.Tk):
             ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
 
             # Шрифт для данных
-            ('FONTNAME', (0, 1), (-1, -1), 'Arial-Narrow'),
+            ('FONTNAME', (0, 1), (-1, -1), 'DejaVuSans'),
             ('FONTSIZE', (0, 1), (-1, -1), 9),
         ])
         return table_style
@@ -4140,7 +4136,7 @@ class App(tk.Tk):
             stats_table = Table(stats_data, colWidths=[5*cm, 3*cm])
             stats_table.setStyle(TableStyle([
                 ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-                ('FONTNAME', (0, 0), (-1, -1), 'Arial'),
+                ('FONTNAME', (0, 0), (-1, -1), 'DejaVuSans'),
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
                 ('TOPPADDING', (0, 0), (-1, -1), 4),
                 ('BOTTOMPADDING', (0, 0), (-1, -1), 4),

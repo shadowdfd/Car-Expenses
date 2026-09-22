@@ -2,7 +2,7 @@
 
 Система учёта расходов на автомобиль с двумя версиями приложения: графическим интерфейсом GUI (этот репозиторий) и веб-приложением ([GitHub - shadowdfd/Car-Expenses-WEB](https://github.com/shadowdfd/Car-Expenses-WEB)).
 
-[Скачать версию для Windows](https://github.com/shadowdfd/Car-Expenses/releases/tag/lastest)
+## Версии приложения
 
 ### GUI приложение (Windows)
 
@@ -23,6 +23,8 @@
 **Запуск:**
 
 ```bash
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 python car_expenses_gui.pyw
 ```
@@ -35,7 +37,13 @@ pyinstaller car_expenses.spec
 
 Исполняемый файл появится в папке `dist/`
 
-### ## База данных
+**Шрифты для PDF:**
+
+В папке `fonts/` используются шрифты **DejaVu Sans** (свободная лицензия):
+- `DejaVuSans.ttf` - обычный
+- `DejaVuSans-Bold.ttf` - жирный
+
+## База данных
 
 **SQLite:** `cars.db`
 
@@ -56,6 +64,12 @@ pyinstaller car_expenses.spec
 - `service_tasks` - стандартные работы
 - `service_history` - история ТО
 - `service_history_tasks` - связь работ с записями ТО
+
+**Инициализация БД (для веб-версии):**
+
+```bash
+python init_db.py
+```
 
 ## Структура проекта
 
