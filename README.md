@@ -57,12 +57,6 @@ pyinstaller car_expenses.spec
 - `service_history` - история ТО
 - `service_history_tasks` - связь работ с записями ТО
 
-**Инициализация БД (для веб-версии):**
-
-```bash
-python init_db.py
-```
-
 ## Структура проекта
 
 ### GUI версия
